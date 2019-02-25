@@ -1,6 +1,11 @@
 # https_server_client
 Simple https server/client
 
+## openssl version
+OpenSSL 1.0.2j-fips  26 Sep 2016
+
+https://sourceforge.net/projects/openssl/
+
 ## Create server certificate:
 openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout server.key -out server.crt
 
