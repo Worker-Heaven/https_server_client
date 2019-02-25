@@ -1,4 +1,4 @@
-# https_server_client
+# HTTPS server/client in Python
 Simple https server/client
 
 ## openssl version
@@ -8,6 +8,7 @@ https://sourceforge.net/projects/openssl/
 
 ## Create server certificate:
 openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout server.key -out server.crt
+common name: 'example.com'
 
 ## Create client certificate:
 openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout client.key -out client.crt
