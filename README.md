@@ -1,21 +1,20 @@
 # HTTPS server/client in Python
-Simple https server/client
+Simple https server/client which validate server's certificate and do rsa encryption using server's public key on the client side and decrypt data on server side using server's private key
 
 ## openssl version
 OpenSSL 1.0.2j-fips  26 Sep 2016
 
 https://sourceforge.net/projects/openssl/
 
+## Configure personal CA:
+$ openssl genrsa -out ca.key 2048
+$ openssl req -new -x509 -key ca.key -out ca.crt
+
 ## Create server certificate:
-openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout server.key -out server.crt <br />
-common name: 'example.com'
+$ openssl genrsa -out example.org.key 2048 (keygen)
+$ openssl req -new -key example.org.key -out example.org.csr (csr gen)
 
-## Create client certificate:
-openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout client.key -out client.crt
+## Sign the certificate
+$ openssl x509 -req -in example.org.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out example.org.crt
 
 
-## A few notes:
-You can concatenate multiple client certificates into a single PEM file to authenticate different clients.
-You can re-use the same cert and key on both the server and client. This way, you don’t need to generate a specific client certificate. However, any clients using that certificate will require the key, and will be able to impersonate the server. There’s also no way to distinguish between clients anymore.
-You don’t need to setup your own Certificate Authority and sign client certificates. You can just generate them with the above mentioned openssl command and add them to the trusted certificates file. If you no longer trust the client, just remove the certificate from the file.
-I’m not sure if the server verifies the client certificate’s expiration date.
