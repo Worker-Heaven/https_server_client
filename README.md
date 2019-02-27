@@ -1,4 +1,4 @@
-# HTTPS server/client in Python
+# HTTPS server/client in Python 3.6
 Simple https server/client which validate server's certificate and do rsa encryption using server's public key on the client side and decrypt data on server side using server's private key
 
 ## openssl version
