@@ -26,3 +26,5 @@ https://pycryptodome.readthedocs.io/en/latest/src/installation.html
 https://sourceforge.net/projects/openssl/
 
 Released /openssl-1.0.2j-fips-x86_64/openssl-1.0.2j-fips-x86_64.zip
+
+Just extract zip file and add openssl/bin to system path like `E:\Utilities\OpenSSL\bin`
