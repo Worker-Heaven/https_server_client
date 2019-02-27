@@ -17,4 +17,10 @@ $ openssl req -new -key example.org.key -out example.org.csr (csr gen)
 ## Sign the certificate
 $ openssl x509 -req -in example.org.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out example.org.crt
 
+## How to install Cryptodome
+please reference this article
 
+https://pycryptodome.readthedocs.io/en/latest/src/installation.html
+
+## How to install openssl 
+https://sourceforge.net/projects/openssl/
